@@ -1,15 +1,10 @@
 import "@styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@heroui/link";
 import clsx from "clsx";
-
-
 import { siteConfig } from "@config/site";
 import { fontSans } from "@config/fonts";
-import Navbar from "@widgets/Navbar";
 
 import { Providers } from "./providers";
-
 
 export const metadata: Metadata = {
   title: {
@@ -43,7 +38,13 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "light", forcedTheme: 'light' }}>
+        <Providers
+          themeProps={{
+            attribute: "class",
+            defaultTheme: "light",
+            forcedTheme: "light",
+          }}
+        >
           {/* <Navbar /> */}
           {children}
         </Providers>

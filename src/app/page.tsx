@@ -2,6 +2,7 @@ import Navbar from "@components/widgets/Navbar"; // Corrected import path
 import { HeroSlider } from "@components/widgets/HeroSlider";
 import { FloatingChat } from "@components/widgets/FloatingChat";
 import { CookieBanner } from "@components/widgets/CookieBanner"; // New component
+
 import { AboutUs } from "@/components/widgets/AboutUs";
 import { Advantages } from "@/components/widgets/Advantages";
 import { TeamSection } from "@/components/widgets/TeamSection";

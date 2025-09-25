@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 
 interface SectionTitleProps {
   children: React.ReactNode;
   className?: string;
 }
 
-export const SectionTitle = ({ children, className = '' }: SectionTitleProps) => {
+export const SectionTitle = ({
+  children,
+  className = "",
+}: SectionTitleProps) => {
   // Все стили из вашего задания, но без margin-bottom
   return (
     <h2

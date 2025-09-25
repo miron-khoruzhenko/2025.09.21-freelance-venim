@@ -1,39 +1,46 @@
 // src/components/widgets/Advantages/index.tsx
 
-import { SectionTitle } from '@/components/shared/SectionTitle';
-import Image from 'next/image';
+import Image from "next/image";
+
+import { SectionTitle } from "@/components/shared/SectionTitle";
 
 // Данные для секции вынесены в массив объектов для удобства
 const advantagesData = [
   {
-    icon: '/images/2.Advantages/gift (1) 1.png',
-    title: 'Бесплатная консультация с анализом документов',
-    description: 'Разберём вашу ситуацию, изучим документы и честно расскажем, каковы реальные перспективы дела. Без обязательств, без давления.',
+    icon: "/images/2.Advantages/gift (1) 1.png",
+    title: "Бесплатная консультация с анализом документов",
+    description:
+      "Разберём вашу ситуацию, изучим документы и честно расскажем, каковы реальные перспективы дела. Без обязательств, без давления.",
   },
   {
-    icon: '/images/2.Advantages/calendar 1.png',
-    title: 'Гибкая система оплаты под ваши нужды',
-    description: 'Вы выбираете удобный способ оплаты: поэтапно, почасовая или единым платежом. Условия — под вас, не наоборот.',
+    icon: "/images/2.Advantages/calendar 1.png",
+    title: "Гибкая система оплаты под ваши нужды",
+    description:
+      "Вы выбираете удобный способ оплаты: поэтапно, почасовая или единым платежом. Условия — под вас, не наоборот.",
   },
   {
-    icon: '/images/2.Advantages/reach 1.png',
-    title: 'Беремся за то, от чего отказываются другие',
-    description: 'Сложность — не причина отказаться, а повод выстроить стратегию. Не обещаем "легко", но доведем до финала.',
+    icon: "/images/2.Advantages/reach 1.png",
+    title: "Беремся за то, от чего отказываются другие",
+    description:
+      'Сложность — не причина отказаться, а повод выстроить стратегию. Не обещаем "легко", но доведем до финала.',
   },
   {
-    icon: '/images/2.Advantages/time 1.png',
-    title: 'Первые результаты — уже через 3 дня',
-    description: 'Приступаем к делу сразу после подписания договора. Вы получаете первые шаги и действия максимум через трое суток.',
+    icon: "/images/2.Advantages/time 1.png",
+    title: "Первые результаты — уже через 3 дня",
+    description:
+      "Приступаем к делу сразу после подписания договора. Вы получаете первые шаги и действия максимум через трое суток.",
   },
   {
-    icon: '/images/2.Advantages/customer-service-agent 1.png',
-    title: 'Информируем на каждом этапе работы',
-    description: 'Вы всегда знаете, что происходит с вашим делом. Регулярные отчёты, понятные объяснения, постоянная связь с юристом.',
+    icon: "/images/2.Advantages/customer-service-agent 1.png",
+    title: "Информируем на каждом этапе работы",
+    description:
+      "Вы всегда знаете, что происходит с вашим делом. Регулярные отчёты, понятные объяснения, постоянная связь с юристом.",
   },
   {
-    icon: '/images/2.Advantages/professional 1.png',
-    title: 'Уверенность в профессионализме',
-    description: 'Мы не обещаем невозможного — предлагаем честный анализ, сильную правовую позицию и максимальную отдачу на каждом этапе.',
+    icon: "/images/2.Advantages/professional 1.png",
+    title: "Уверенность в профессионализме",
+    description:
+      "Мы не обещаем невозможного — предлагаем честный анализ, сильную правовую позицию и максимальную отдачу на каждом этапе.",
   },
 ];
 
@@ -51,11 +58,11 @@ export const Advantages = () => {
             <div key={index} className="flex items-start gap-6">
               <div className="flex-shrink-0">
                 <Image
-                  src={advantage.icon}
                   alt={advantage.title}
-                  width={96}
-                  height={96}
                   className="w-12 h-12 md:w-24 md:h-24"
+                  height={96}
+                  src={advantage.icon}
+                  width={96}
                 />
               </div>
               <div>

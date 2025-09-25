@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from 'react';
-import { SectionTitle } from '@/components/shared/SectionTitle';
-import { servicesForIndividuals, servicesForBusiness, Service } from './data';
-import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
-type ActiveTab = 'individuals' | 'business';
+import { servicesForIndividuals, servicesForBusiness, Service } from "./data";
+
+import { SectionTitle } from "@/components/shared/SectionTitle";
+
+type ActiveTab = "individuals" | "business";
 
 // Отдельный компонент для карточки услуги для чистоты кода
 const ServiceCard = ({ service }: { service: Service }) => {
@@ -17,23 +19,25 @@ const ServiceCard = ({ service }: { service: Service }) => {
       className={`
         group relative rounded-lg p-[42px] transition-all duration-300 aspect-square ease-in-out cursor-pointer
         overflow-hidden z-0
-        ${isFeatured ? 'bg-primary text-white' : 'bg-[#DCDEDE] text-black hover:bg-primary hover:text-white hover:-translate-y-4'}
+        ${isFeatured ? "bg-primary text-white" : "bg-[#DCDEDE] text-black hover:bg-primary hover:text-white hover:-translate-y-4"}
       `}
     >
       {/* Фоновая иконка */}
       <Image
-        src={service.bgIcon}
         alt=""
-        width={300}
-        height={300}
         className="absolute bottom-0 right-0 -z-10 transition-opacity duration-300 group-hover:opacity-60"
+        height={300}
+        src={service.bgIcon}
+        width={300}
       />
-      
-      <h3 className="font-montserrat text-primary group-hover:text-white text-xl font-bold mb-7">{service.title}</h3>
-      
+
+      <h3 className="font-montserrat text-primary group-hover:text-white text-xl font-bold mb-7">
+        {service.title}
+      </h3>
+
       {/* ИЗМЕНЕНИЕ: Добавлен блок с красной/белой линией */}
       <div className="relative pl-4">
-        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary group-hover:bg-white transition-colors duration-300"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary group-hover:bg-white transition-colors duration-300" />
         <ul className="space-y-3">
           {service.items.map((item, index) => (
             <li key={index} className="text-sm">
@@ -47,28 +51,35 @@ const ServiceCard = ({ service }: { service: Service }) => {
 };
 
 export const ServicesSection = () => {
-  const [activeTab, setActiveTab] = useState<ActiveTab>('individuals');
+  const [activeTab, setActiveTab] = useState<ActiveTab>("individuals");
 
-  const currentServices = activeTab === 'individuals' ? servicesForIndividuals : servicesForBusiness;
-  
+  const currentServices =
+    activeTab === "individuals" ? servicesForIndividuals : servicesForBusiness;
+
   const tabButtonClasses = (tabName: ActiveTab) =>
     `px-12 py-4 w-full rounded-lg font-semibold transition-colors duration-300 text-lg ${
       activeTab === tabName
-        ? 'bg-primary text-white shadow-lg'
-        : 'bg-[#DCDEDE] text-black hover:bg-gray-300'
+        ? "bg-primary text-white shadow-lg"
+        : "bg-[#DCDEDE] text-black hover:bg-gray-300"
     }`;
 
   return (
     <section className="py-[185px]">
       <div className="container px-4 mx-auto">
         <SectionTitle className="mb-[91px]">Услуги</SectionTitle>
-        
+
         {/* Табы */}
         <div className="flex flex-col lg:flex-row justify-center gap-4 md:gap-8">
-          <button onClick={() => setActiveTab('individuals')} className={tabButtonClasses('individuals')}>
+          <button
+            className={tabButtonClasses("individuals")}
+            onClick={() => setActiveTab("individuals")}
+          >
             Для частных лиц
           </button>
-          <button onClick={() => setActiveTab('business')} className={tabButtonClasses('business')}>
+          <button
+            className={tabButtonClasses("business")}
+            onClick={() => setActiveTab("business")}
+          >
             Для бизнеса
           </button>
         </div>
@@ -77,24 +88,35 @@ export const ServicesSection = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab} // Анимация при смене таба
-            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[96px]"
+            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.4 }}
           >
             {currentServices.map((service) => (
               <ServiceCard key={service.title} service={service} />
             ))}
           </motion.div>
         </AnimatePresence>
-        
+
         <p className="my-44 font-unbounded text-5xl font-semibold text-center">
-          Мы <span className="text-primary">надежный партнер</span> для наших <br />
-          клиентов, предлагаем <span className="text-primary">прозрачные<br />
-          решения </span>  и <span className="text-primary">высококлассную юридическую <br />
-          поддержку </span> при строгом соблюдении <br />
-          конфиденциальности</p>
+          Мы <span className="text-primary">надежный партнер</span> для наших{" "}
+          <br />
+          клиентов, предлагаем{" "}
+          <span className="text-primary">
+            прозрачные
+            <br />
+            решения{" "}
+          </span>{" "}
+          и{" "}
+          <span className="text-primary">
+            высококлассную юридическую <br />
+            поддержку{" "}
+          </span>{" "}
+          при строгом соблюдении <br />
+          конфиденциальности
+        </p>
       </div>
     </section>
   );

@@ -1,8 +1,9 @@
 // src/components/widgets/AboutUs/index.tsx
 
-import { SectionTitle } from '@/components/shared/SectionTitle';
-import Image from 'next/image';
-import { PlayCircle } from 'lucide-react';
+import Image from "next/image";
+import { PlayCircle } from "lucide-react";
+
+import { SectionTitle } from "@/components/shared/SectionTitle";
 
 export const AboutUs = () => {
   return (
@@ -19,31 +20,49 @@ export const AboutUs = () => {
           {/* Левая колонка с текстом */}
           <div className="flex flex-col gap-6 text-gray-800 text-base md:text-xl">
             <p>
-              Мы <strong className="text-primary">более 10 лет</strong> помогаем частным и корпоративным клиентам решать юридические вопросы в Санкт-Петербурге и по всей России.
+              Мы <strong className="text-primary">более 10 лет</strong> помогаем
+              частным и корпоративным клиентам решать юридические вопросы в
+              Санкт-Петербурге и по всей России.
             </p>
             <p>
-              За это время мы заслужили репутацию <strong className="text-primary">надёжных специалистов</strong>, способных справляться с задачами любой сложности — от консультаций до судебной защиты.
+              За это время мы заслужили репутацию{" "}
+              <strong className="text-primary">надёжных специалистов</strong>,
+              способных справляться с задачами любой сложности — от консультаций
+              до судебной защиты.
             </p>
             <p>
-              Каждое дело требует <strong className="text-primary">индивидуального подхода</strong>, и мы всегда предлагаем чёткую <strong className="text-primary">стратегию</strong>, прозрачный процесс и максимальную отдачу от команды.
+              Каждое дело требует{" "}
+              <strong className="text-primary">индивидуального подхода</strong>,
+              и мы всегда предлагаем чёткую{" "}
+              <strong className="text-primary">стратегию</strong>, прозрачный
+              процесс и максимальную отдачу от команды.
             </p>
             <p>
-              Нам важно не просто «отработать» — мы стремимся к результату, который действительно <strong className="text-primary">решает проблему клиента</strong>.
+              Нам важно не просто «отработать» — мы стремимся к результату,
+              который действительно{" "}
+              <strong className="text-primary">решает проблему клиента</strong>.
             </p>
           </div>
 
           {/* Правая колонка с видео */}
           <div className="flex flex-col items-start gap-4 h-full">
             <div className="flex items-center gap-3">
-              <p className="font-semibold text-2xl">Посмотрите видео о нас, <br /> чтобы познакомиться поближе</p>
-              <Image src="/images/click.svg" alt="click icon" width={69} height={69} />
+              <p className="font-semibold text-2xl">
+                Посмотрите видео о нас, <br /> чтобы познакомиться поближе
+              </p>
+              <Image
+                alt="click icon"
+                height={69}
+                src="/images/click.svg"
+                width={69}
+              />
             </div>
-            <a 
-              href="#" // Замените на вашу ссылку на видео
+            <a
               className="
                 group relative w-full h-full rounded-lg border-2 border-gray-300
                 flex items-center justify-center bg-gray-100 hover:border-primary transition-colors
               "
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             >
               <PlayCircle className="w-16 h-16 text-gray-300 group-hover:text-primary transition-colors" />
             </a>
