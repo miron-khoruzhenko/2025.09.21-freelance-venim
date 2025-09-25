@@ -2,6 +2,10 @@ import Navbar from "@components/widgets/Navbar"; // Corrected import path
 import { HeroSlider } from "@components/widgets/HeroSlider";
 import { FloatingChat } from "@components/widgets/FloatingChat";
 import { CookieBanner } from "@components/widgets/CookieBanner"; // New component
+import { AboutUs } from "@/components/widgets/AboutUs";
+import { Advantages } from "@/components/widgets/Advantages";
+import { TeamSection } from "@/components/widgets/TeamSection";
+import { ServicesSection } from "@/components/widgets/ServicesSection";
 
 export default function HomePage() {
   return (
@@ -9,14 +13,12 @@ export default function HomePage() {
       <Navbar />
       <HeroSlider />
       <FloatingChat />
-      <CookieBanner /> {/* Add the banner here */}
+      <AboutUs />
+      <Advantages />
+      <TeamSection />
+      <ServicesSection />
 
-      {/* Здесь будут остальные секции вашего сайта */}
-      <div className="h-[200vh] bg-gray-50">
-        <div className="container mx-auto p-8">
-            <h2 className="text-3xl font-bold">Следующая секция сайта...</h2>
-        </div>
-      </div>
+      <CookieBanner />
     </main>
   );
 }

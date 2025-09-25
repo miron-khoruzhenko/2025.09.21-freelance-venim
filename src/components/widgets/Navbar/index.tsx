@@ -31,13 +31,13 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full backdrop-blur-md shadow-sm">
+      <header className="fixed top-0 z-50 w-full backdrop-blur-md shadow-sm border-b-2 border-primary">
         <div className="container mx-auto px-4">
           {/* Top Bar */}
-          <div className="flex justify-between items-center py-3 border-b border-gray-200">
+          <div className="flex justify-between items-center py-3">
             <Link href="/" className="flex flex-col">
               <Image src="/images/logo.png" alt="Venim Logo" width={120} height={40} />
-              <span className="text-xs text-gray-500">Юридические услуги</span>
+              <span className="text-xs text-gray-500 hidden lg:inline">Юридические услуги</span>
             </Link>
 
             {/* Desktop Contact Info */}
