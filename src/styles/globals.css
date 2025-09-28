@@ -4,6 +4,10 @@
 
 html, body{
 	background-color: #f3f5f9;
+  /* 100vw = 1920 */
+  /* 1vw = 1920/100 = 19.2 */
+  /* 16px = 16/19.2 = 0.8333vw */
+  font-size: 0.8333vw;
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -11,4 +15,55 @@ html, body{
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+
+.swiper-pagination-custom .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #a0a0a0;
+  opacity: 0.8;
+  transition: background-color 0.3s;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  background-color: #8D1A14; /* ваш primary цвет */
+}
+/* src/styles/globals.css */
+
+.swiper-pagination-custom .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background-color: #a0a0a0;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  width: 23px;
+  height: 23px;
+  background-color: #8D1A14; /* ваш primary цвет */
+}
+/* src/styles/globals.css */
+
+.swiper-pagination-custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 23px; /* Фиксированная высота для предотвращения прыжков */
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background-color: #a0a0a0;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  width: 23px;
+  height: 23px;
+  background-color: #8D1A14; /* ваш primary цвет */
 }

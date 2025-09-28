@@ -57,16 +57,15 @@ export const ServicesSection = () => {
     activeTab === "individuals" ? servicesForIndividuals : servicesForBusiness;
 
   const tabButtonClasses = (tabName: ActiveTab) =>
-    `px-12 py-4 w-full rounded-lg font-semibold transition-colors duration-300 text-lg ${
-      activeTab === tabName
-        ? "bg-primary text-white shadow-lg"
-        : "bg-[#DCDEDE] text-black hover:bg-gray-300"
+    `px-12 py-4 w-full rounded-lg font-semibold transition-colors duration-300 text-lg ${activeTab === tabName
+      ? "bg-primary text-white shadow-lg"
+      : "bg-[#DCDEDE] text-black hover:bg-gray-300"
     }`;
 
   return (
-    <section className="py-[185px]">
+    <section className="pt-48">
       <div className="container px-4 mx-auto">
-        <SectionTitle className="mb-[91px]">Услуги</SectionTitle>
+        <SectionTitle className="mb-24">Услуги</SectionTitle>
 
         {/* Табы */}
         <div className="flex flex-col lg:flex-row justify-center gap-4 md:gap-8">
@@ -100,18 +99,17 @@ export const ServicesSection = () => {
           </motion.div>
         </AnimatePresence>
 
-        <p className="my-44 font-unbounded text-5xl font-semibold text-center">
+        <p className="my-20 lg:my-44 font-unbounded text-2xl lg:text-5xl font-semibold text-center">
           Мы <span className="text-primary">надежный партнер</span> для наших{" "}
-          <br />
-          клиентов, предлагаем{" "}
+          <br className="hidden lg:block" /> клиентов, предлагаем{" "}
           <span className="text-primary">
             прозрачные
-            <br />
-            решения{" "}
+            <br className="hidden lg:block" />
+            решения
           </span>{" "}
           и{" "}
           <span className="text-primary">
-            высококлассную юридическую <br />
+            высококлассную юридическую <br className="hidden lg:block" />
             поддержку{" "}
           </span>{" "}
           при строгом соблюдении <br />
