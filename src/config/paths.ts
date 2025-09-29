@@ -1,16 +1,19 @@
 // src/config/paths.ts
 
+import { ANCHORS } from "./anchors";
+
 export const PATHS = {
   home: '/',
   // about: '/about',
-  about: '/#about',
-  partners: '/#partners',
+  about: `/#${ANCHORS.about}`,
+  partners: `/#${ANCHORS.partners}`,
   promo: '/promo',
   experience: '/experience',
-  blog: '/#blog',
+  blog: `/#${ANCHORS.blog}`,
   reviews: '/reviews',
-  contacts: '/#contact',
+  contacts: `/#${ANCHORS.contact}`,
   privacyPolicy: '/privacy-policy',
+  cookiesPolicy: '/cookies-policy',
   
   services: {
     root: '/services',

@@ -4,11 +4,12 @@ import Image from "next/image";
 import { PlayCircle } from "lucide-react";
 
 import { SectionTitle } from "@/components/shared/SectionTitle";
+import { ANCHORS } from "@/config/anchors";
 
 export const AboutUs = () => {
   return (
     // Responsive padding `py` для секции
-    <section id="about" className="py-16 md:py-24 lg:py-[185px]">
+    <section id={ANCHORS.about} className="py-16 md:py-24 lg:py-[185px]">
       <div className="container mx-auto px-4">
         {/* Здесь мы используем SectionTitle и задаем ему нижний отступ */}
         <SectionTitle className="mb-16 md:mb-[86px]">

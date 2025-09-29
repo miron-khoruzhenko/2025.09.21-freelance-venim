@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { CONTACT } from '@/config/site';
 import { PATHS } from '@/config/paths';
 import Link from 'next/link';
+import { ANCHORS } from '@/config/anchors';
 
 const socialLinks = [
   { href: CONTACT.telegram, icon: "/images/1.Hero/telegram_circle_icon.png", alt: "Telegram" },
@@ -43,7 +44,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="relative py-16 md:py-20 overflow-hidden">
+    <section id={ANCHORS.contact} className="relative py-16 md:py-20 overflow-hidden">
       <Image
         src="/images/contact_form_bg.png"
         alt="Background"
@@ -77,7 +78,7 @@ export const ContactSection = () => {
               <p className="mt-2 text-gray-700">Наши специалисты свяжутся с вами в течение 30 минут</p>
             </div>
             
-            <form id="contact-form" onSubmit={handleSubmit} className="flex flex-col ">
+            <form id={ANCHORS.contactForm} onSubmit={handleSubmit} className="flex flex-col ">
               {/* Блок 2: Поля ввода */}
               <div className="flex flex-col gap-4 bg-[#DCDEDE] p-8 md:p-12 rounded-xl">
                 <input type="text" name="name" placeholder="Имя" value={formData.name} onChange={handleChange} className={inputBaseClasses} required />
@@ -92,8 +93,8 @@ export const ContactSection = () => {
                   Отправить заявку
                 </Button>
                 <div className="flex items-start gap-2">
-                  <input type="checkbox" id="agreement" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="h-5 w-5 rounded mt-0.5 border-gray-400 text-primary focus:ring-primary flex-shrink-0" />
-                  <label htmlFor="agreement" className="text-xs text-gray-600">
+                  <input type="checkbox" id={ANCHORS.inputAgreement} checked={agreed} onChange={(e) => setAgreed(e.target.checked)} className="h-5 w-5 rounded mt-0.5 border-gray-400 text-primary focus:ring-primary flex-shrink-0" />
+                  <label htmlFor={ANCHORS.inputAgreement} className="text-xs text-gray-600">
                     Я даю согласие на обработку моих персональных данных в соответствии с <Link href={PATHS.privacyPolicy} className="underline">Политикой конфиденциальности</Link>
                   </label>
                 </div>

@@ -9,6 +9,7 @@ import React from 'react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { ANCHORS } from '@/config/anchors';
 
 const PartnerCard = ({ partner }: { partner: Partner }) => {
   const content = (
@@ -45,7 +46,7 @@ export const PartnersSection = () => {
   const partnerPages = chunkArray(partnersData, 6);
 
   return (
-    <section id="partners" className="bg-[#DCDEDE] py-[11.875rem]">
+    <section id={ANCHORS.partners} className="bg-[#DCDEDE] py-[11.875rem]">
       <div className="container px-4 mx-auto">
         <SectionTitle>Наши партнеры</SectionTitle>
 

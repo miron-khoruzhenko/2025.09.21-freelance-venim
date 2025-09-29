@@ -9,6 +9,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { slidesData, socialProofIcons } from "./data";
 
 import { PATHS } from "@/config/paths";
+import { ANCHORS, getAnchor } from "@/config/anchors";
 
 export function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,11 +23,11 @@ export function HeroSlider() {
           setCurrentSlide((prev) =>
             prev === slidesData.length - 1 ? 0 : prev + 1,
           ),
-        5000,
+        15000,
       );
     };
 
-    // setSliderTimeout(); // Автопрокрутка включена
+    setSliderTimeout(); // Автопрокрутка включена
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -51,7 +52,7 @@ export function HeroSlider() {
   const slide = slidesData[currentSlide];
 
   return (
-    <section id="hero" className="relative w-full h-dvh bg-gray-100 text-black overflow-hidden font-montserrat">
+    <section id={ANCHORS.hero} className="relative w-full h-dvh bg-gray-100 text-black overflow-hidden font-montserrat">
       <AnimatePresence>
         <motion.div
           key={currentSlide}
@@ -162,9 +163,9 @@ export function HeroSlider() {
               {/* Нижняя часть (кнопка, соц. доказательства), прижата вниз на мобильных */}
               <div className="mt-auto md:mt-8">
                 <div className={`${slide.type === "main" ? "w-full " : ""}`}>
-                  <button className="w-full bg-primary text-white py-3 md:py-4 rounded-md text-xs md:text-lg font-bold hover:bg-primary-dark transition-colors font-unbounded">
+                  <Link href={getAnchor("contact")} className="w-full block text-center bg-primary text-white py-3 md:py-4 rounded-md text-xs md:text-lg font-bold hover:bg-primary-dark transition-colors font-unbounded">
                     {slide.buttonText} {slide.type === "template" && "0,00 ₽"}
-                  </button>
+                  </Link>
                   {/* Social Proof Section (desktop layout) */}
                   {slide.type === "main" ? (
                     <div className="hidden md:block mt-6">

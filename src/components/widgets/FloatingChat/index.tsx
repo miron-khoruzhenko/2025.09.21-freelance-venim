@@ -3,11 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { CONTACT } from "@/config/site";
 
 const chatIcons = [
-  { icon: "/images/1.Hero/notepad_circle_icon.png", alt: "Notepad" },
-  { icon: "/images/1.Hero/phone_circle_icon.png", alt: "Phone" },
-  { icon: "/images/1.Hero/whatsapp_circle_icon.png", alt: "WhatsApp" },
+  { icon: "/images/1.Hero/notepad_circle_icon.png", alt: "Notepad", href: CONTACT.email },
+  { icon: "/images/1.Hero/phone_circle_icon.png", alt: "Phone", href: CONTACT.phone },
+  { icon: "/images/1.Hero/whatsapp_circle_icon.png", alt: "WhatsApp", href: CONTACT.whatsapp },
 ];
 
 export function FloatingChat() {
@@ -27,7 +28,7 @@ export function FloatingChat() {
               transition={{ duration: 0.3 }}
             >
               {chatIcons.map((item, index) => (
-                <a key={index} href="#">
+                <a key={index} href={item.href} target="_blank" rel="noopener noreferrer">
                   <Image
                     alt={item.alt}
                     className="hover:scale-110 transition-transform"

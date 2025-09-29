@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { PATHS } from "@/config/paths";
+import Link from "next/link";
 
 export function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -40,9 +42,9 @@ export function CookieBanner() {
             <p className="text-sm text-gray-700 text-center sm:text-left">
               Продолжая пользоваться сайтом, вы соглашаетесь с использованием
               cookie-файлов.{" "}
-              <a className="underline hover:text-primary" href="#">
+              <Link className="underline hover:text-primary" href={PATHS.cookiesPolicy}>
                 Узнать подробнее
-              </a>
+              </Link>
             </p>
             <button
               className="bg-primary text-white font-semibold py-2 px-8 rounded-md hover:bg-primary-dark transition-colors whitespace-nowrap"

@@ -19,7 +19,7 @@ export const ExperienceHero = () => {
   
   return (
     <section className="min-h-screen bg-white flex items-center">
-      <div className="container px-4 mx-auto pt-32 pb-16">
+      <div className="container px-4 mx-auto pt-56 pb-16">
         <div className="text-sm text-gray-500 mb-6">
           <Link href="/" className="hover:text-primary">Главная</Link>
           <span className="mx-2">&gt;</span>

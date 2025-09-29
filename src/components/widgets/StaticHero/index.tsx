@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import { Button } from "@/components/shared/Button";
 import { PATHS } from "@/config/paths";
+import { cn } from "@/utils/cn";
 
 const heroDataIndividual = {
   bgImage: "/images/ServicesPage/bg_img.png",
@@ -44,7 +45,7 @@ export function StaticHero({isBusiness=false}:{isBusiness?:boolean}) {
       />
 
       <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-        <div className="w-full md:w-1/2">
+        <div className={cn("w-full md:w-1/2 pt-20", isBusiness && "pt-32")}>
           {/* Хлебные крошки */}
           <div className="text-sm text-gray-600 mb-4">
             <Link href="/" className="hover:text-primary">Главная</Link>

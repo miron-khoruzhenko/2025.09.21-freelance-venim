@@ -4,6 +4,8 @@ import { SectionTitle } from '@/components/shared/SectionTitle';
 import { Button } from '@/components/shared/Button';
 import { roadmapData } from './data';
 import React from 'react';
+import Link from 'next/link';
+import { getAnchor } from '@/config/anchors';
 
 export const RoadmapSection = () => {
   return (
@@ -51,10 +53,11 @@ export const RoadmapSection = () => {
             ))}
           </div>
         </div>
-
+        <Link href={getAnchor('contact')} className="mt-16 md:mt-20">
         <Button className="mt-16 md:mt-20">
           Начать работу
         </Button>
+        </Link>
       </div>
     </section>
   );

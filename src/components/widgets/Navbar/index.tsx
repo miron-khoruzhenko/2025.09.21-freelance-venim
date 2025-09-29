@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { CONTACT, navLinks } from '@/config/site';
+import { getAnchor } from "@/config/anchors";
 
 
 export default function Navbar() {
@@ -19,7 +20,7 @@ export default function Navbar() {
         <div className="container mx-auto px-4">
           {/* Top Bar */}
           <div className="flex justify-between items-center py-3">
-            <Link className="flex flex-col relative" href="/#hero">
+            <Link className="flex flex-col relative" href={getAnchor('hero')}>
               <Image
                 alt="Venim Logo"
                 height={120}

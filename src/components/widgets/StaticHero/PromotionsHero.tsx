@@ -30,7 +30,7 @@ export function PromotionStaticHero({isBusiness=false}:{isBusiness?:boolean}) {
       />
 
       <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2 pt-16">
           {/* Хлебные крошки */}
           <div className="text-sm text-gray-600 mb-4">
             <Link href="/" className="hover:text-primary">Главная</Link>

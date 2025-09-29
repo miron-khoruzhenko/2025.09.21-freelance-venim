@@ -10,6 +10,8 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { PracticeCase } from '@/types/interfaces';
+import Link from 'next/link';
+import { getAnchor } from '@/config/anchors';
 
 // Карточка остаётся здесь же
 const PracticeCard = ({ caseData, onCaseSelect }: { caseData: PracticeCase, onCaseSelect: (caseData: PracticeCase) => void }) => {
@@ -20,7 +22,7 @@ const PracticeCard = ({ caseData, onCaseSelect }: { caseData: PracticeCase, onCa
 				<p className="font-montserrat text-xl text-gray-700 mt-9 mb-32">{caseData.subtitle}</p>
 			</div>
 
-			<div className="min-h-40">
+			<div className="min-h-56">
 				{caseData.mainContent}
 			</div>
 
@@ -32,7 +34,9 @@ const PracticeCard = ({ caseData, onCaseSelect }: { caseData: PracticeCase, onCa
 
 				<div className="mt-auto pt-12 flex flex-col gap-4">
 					<Button onClick={() => onCaseSelect(caseData)} className="w-full !py-7 text-2xl !px-0">Читать подробнее</Button>
-					<Button className="w-full !py-7 text-2xl">Оставить заявку</Button>
+					<Link href={getAnchor('contact')}>
+						<Button className="w-full !py-7 text-2xl">Оставить заявку</Button>
+					</Link>
 				</div>
 			</div>
 

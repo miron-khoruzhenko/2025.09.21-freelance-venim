@@ -56,7 +56,7 @@ export const teamData: TeamMember[] = [
     ],
   },
   {
-    id: 1,
+    id: 4,
     name: "Венцель Мария Александровна",
     title: "Генеральный директор",
     avatar: "/images/3.Team/team_member_1.jpg",
@@ -68,7 +68,7 @@ export const teamData: TeamMember[] = [
     ],
   },
   {
-    id: 2,
+    id: 5,
     name: "Дмитриева Ксения Викторовна",
     title: "Ведущий юрист",
     avatar: "/images/3.Team/team_member_2.jpg",
@@ -80,7 +80,7 @@ export const teamData: TeamMember[] = [
     ],
   },
   {
-    id: 3,
+    id: 6,
     name: "Пастухова Анна Александровна",
     title: "Юрист по корпоративному праву",
     avatar: "/images/3.Team/team_member_3.jpg",

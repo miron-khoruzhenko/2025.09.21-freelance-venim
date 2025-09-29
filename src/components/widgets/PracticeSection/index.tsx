@@ -12,6 +12,7 @@ import { PracticeSlider } from '../PracticeSlider';
 import { useState } from 'react';
 import { PracticeCase } from '@/types/interfaces';
 import { PracticeCaseModal } from '../PracticeCaseModal';
+import { ANCHORS } from '@/config/anchors';
 
 
 export const PracticeSection = () => {
@@ -27,7 +28,7 @@ export const PracticeSection = () => {
 
   return (
     <>
-      <section id='blog' className="py-[11.875rem]">
+      <section id={ANCHORS.blog} className="py-[11.875rem]">
         <div className="container px-4 mx-auto">
           <SectionTitle>Наша практика</SectionTitle>
           <p className="mt-[5.1875rem] text-2xl text-gray-700">

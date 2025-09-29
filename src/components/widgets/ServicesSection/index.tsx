@@ -7,6 +7,7 @@ import { servicesForIndividuals, servicesForBusiness, Service } from './data';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/shared/Button';
+import { getAnchor } from '@/config/anchors';
 
 type ActiveTab = 'individuals' | 'business';
 
@@ -58,18 +59,17 @@ const ServiceCard = ({ service }: { service: Service }) => {
 export const ServicesSection = ({
   isButton = false,
   category
-} : {
+}: {
   isButton?: boolean,
   category?: 'individuals' | 'business'
-})  => {
+}) => {
   const [activeTab, setActiveTab] = useState<ActiveTab>(category || "individuals");
   const currentServices = activeTab === "individuals" ? servicesForIndividuals : servicesForBusiness;
 
   const tabButtonClasses = (tabName: ActiveTab) =>
-    `px-12 py-4 w-full rounded-lg font-semibold transition-colors duration-300 text-lg ${
-      activeTab === tabName
-        ? "bg-primary text-white shadow-lg"
-        : "bg-[#DCDEDE] text-black hover:bg-gray-300"
+    `px-12 py-4 w-full rounded-lg font-semibold transition-colors duration-300 text-lg ${activeTab === tabName
+      ? "bg-primary text-white shadow-lg"
+      : "bg-[#DCDEDE] text-black hover:bg-gray-300"
     }`;
 
   return (
@@ -98,16 +98,18 @@ export const ServicesSection = ({
             ))}
           </motion.div>
         </AnimatePresence>
-        {isButton ? 
-        <p className="my-20 lg:my-44 font-unbounded text-2xl lg:text-5xl font-semibold text-center">
-          Мы <span className="text-primary">надежный партнер</span> для наших <br className="hidden lg:block" /> клиентов, предлагаем{" "}
-          <span className="text-primary">прозрачные<br className="hidden lg:block" />решения</span> и{" "}
-          <span className="text-primary">высококлассную юридическую <br className="hidden lg:block" />поддержку</span> при строгом соблюдении <br />
-          конфиденциальности
-        </p> :
-        <div className="flex justify-center mt-24">
-        <Button className=''>Получить бесплатную консультацию</Button>
-        </div>
+        {isButton ?
+          <p className="my-20 lg:my-44 font-unbounded text-2xl lg:text-5xl font-semibold text-center">
+            Мы <span className="text-primary">надежный партнер</span> для наших <br className="hidden lg:block" /> клиентов, предлагаем{" "}
+            <span className="text-primary">прозрачные<br className="hidden lg:block" />решения</span> и{" "}
+            <span className="text-primary">высококлассную юридическую <br className="hidden lg:block" />поддержку</span> при строгом соблюдении <br />
+            конфиденциальности
+          </p> :
+          <div className="flex justify-center mt-24">
+            <Link href={getAnchor('contact')}>
+              <Button className=''>Получить бесплатную консультацию</Button>
+            </Link>
+          </div>
         }
       </div>
     </section>

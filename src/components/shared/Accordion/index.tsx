@@ -1,12 +1,9 @@
-// src/components/shared/Accordion/index.tsx
 "use client";
 
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
-// --- Внутренний компонент для одного элемента ---
-// (Обычно его не экспортируют, он используется только внутри Accordion)
 const AccordionItem = ({
   title,
   children,
@@ -19,28 +16,36 @@ const AccordionItem = ({
   onClick: () => void;
 }) => {
   return (
-    <div className="rounded-2xl overflow-hidden ">
+    <div className="rounded-2xl overflow-hidden group">
       <button
         onClick={onClick}
-        className="flex items-center justify-between w-full text-left p-11 bg-[#D9D9D9] hover:bg-gray-200 transition-colors"
+        className="flex items-center justify-between w-full text-left p-9 bg-[#D9D9D9]  transition-colors"
       >
         <h3 className="text-3xl font-semibold text-gray-800">{title}</h3>
         <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-          <ChevronDown className="w-6 h-6 text-primary" />
+          <ChevronDown className="w-16 h-16 text-primary group-hover:scale-150 transition-transform" />
         </motion.div>
       </button>
 
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            key="content"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: 'auto' },
+              // collapsed: { opacity: 0, height: 0 }
+              collapsed: { height: 0 }
+            }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className="overflow-hidden bg-[#D9D9D9] text-3xl p-10"
+            className="overflow-hidden"
           >
-            {/* Здесь отображается любой вложенный контент */}
-            {children}
+            {/* Внутренний div для контента с отступами */}
+            <div className="bg-[#D9D9D9] text-3xl p-10">
+              {children}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -48,8 +53,6 @@ const AccordionItem = ({
   );
 };
 
-
-// --- Основной компонент-обертка ---
 export const Accordion = ({ items, defaultOpenIndex = 0 }: { items: { title: string, content: React.ReactNode }[], defaultOpenIndex?: number | null }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(defaultOpenIndex);
 
