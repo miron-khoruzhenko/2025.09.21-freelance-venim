@@ -45,7 +45,7 @@ export const PartnersSection = () => {
   const partnerPages = chunkArray(partnersData, 6);
 
   return (
-    <section className="bg-[#DCDEDE] py-[11.875rem]">
+    <section id="partners" className="bg-[#DCDEDE] py-[11.875rem]">
       <div className="container px-4 mx-auto">
         <SectionTitle>Наши партнеры</SectionTitle>
 

@@ -8,11 +8,20 @@ html, body{
   /* 1vw = 1920/100 = 19.2 */
   /* 16px = 16/19.2 = 0.8333vw */
   font-size: 0.8333vw;
+  font-family: 'Montserrat', sans-serif;
   @media screen and (max-width: 768px) {
     font-size: 12px;
     
   }
 }
+
+h1, h2{
+  font-family: 'Unbounded', cursive;
+}
+h3, h4, h5, h6{
+  font-family: 'Montserrat', sans-serif;
+}
+
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -20,6 +29,7 @@ html, body{
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
 
 
 .swiper-pagination-custom .swiper-pagination-bullet {

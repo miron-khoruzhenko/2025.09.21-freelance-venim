@@ -26,7 +26,7 @@ export function HeroSlider() {
       );
     };
 
-    setSliderTimeout(); // Автопрокрутка включена
+    // setSliderTimeout(); // Автопрокрутка включена
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -51,7 +51,7 @@ export function HeroSlider() {
   const slide = slidesData[currentSlide];
 
   return (
-    <section className="relative w-full h-dvh bg-gray-100 text-black overflow-hidden">
+    <section id="hero" className="relative w-full h-dvh bg-gray-100 text-black overflow-hidden font-montserrat">
       <AnimatePresence>
         <motion.div
           key={currentSlide}
@@ -73,13 +73,13 @@ export function HeroSlider() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-10 container mx-auto px-4 h-full flex md:items-center">
+      <div className="relative z-10 container mx-auto px-4 h-full flex md:items-end lg:pb-20">
         <div className="w-full md:w-1/2 h-full md:h-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
               animate={{ opacity: 1, y: 0 }}
-              className="h-full flex flex-col pt-24 pb-20 md:pt-0 md:pb-0 md:block md:py-8"
+              className="h-full flex flex-col  pt-40 pb-20 md:pt-0 md:pb-0 md:block md:py-8"
               exit={{ opacity: 0, y: -20 }}
               initial={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.5 }}
@@ -162,7 +162,7 @@ export function HeroSlider() {
               {/* Нижняя часть (кнопка, соц. доказательства), прижата вниз на мобильных */}
               <div className="mt-auto md:mt-8">
                 <div className={`${slide.type === "main" ? "w-full " : ""}`}>
-                  <button className="w-full bg-primary text-white py-3 md:py-4 rounded-md text-xs md:text-lg font-bold hover:bg-primary-dark transition-colors">
+                  <button className="w-full bg-primary text-white py-3 md:py-4 rounded-md text-xs md:text-lg font-bold hover:bg-primary-dark transition-colors font-unbounded">
                     {slide.buttonText} {slide.type === "template" && "0,00 ₽"}
                   </button>
                   {/* Social Proof Section (desktop layout) */}
@@ -186,7 +186,7 @@ export function HeroSlider() {
                       </p>
                     </div>
                   ) : (
-                    <div className="mt-6 flex flex-col lg:flex-row gap-2 lg:gap-8 text-sm font-medium">
+                    <div className="mt-6 flex flex-col lg:flex-row justify-between gap-2 lg:gap-8 text-lg font-medium font-montserrat">
                       <Link
                         className="underline hover:text-primary"
                         href={PATHS.reviews}

@@ -1,19 +1,18 @@
 // src/components/widgets/PracticeSlider/index.tsx
 "use client";
 
-import { useRef } from 'react';
 import { Button } from '@/components/shared/Button';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import { PracticeCase } from './data'; // Мы создадим этот файл ниже
+// import { PracticeCase } from './data'; // Мы создадим этот файл ниже
 import Image from 'next/image';
-// import { CheckCircle2 } from 'lucide-react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { PracticeCase } from '@/types/interfaces';
 
 // Карточка остаётся здесь же
-const PracticeCard = ({ caseData }: { caseData: PracticeCase }) => {
+const PracticeCard = ({ caseData, onCaseSelect }: { caseData: PracticeCase, onCaseSelect: (caseData: PracticeCase) => void }) => {
 	return (
 		<div className="bg-[#DCDEDE] rounded-lg p-8 grid grid-rows-[auto,1fr] h-full">
 			<div className="">
@@ -32,7 +31,7 @@ const PracticeCard = ({ caseData }: { caseData: PracticeCase }) => {
 				</div>
 
 				<div className="mt-auto pt-12 flex flex-col gap-4">
-					<Button className="w-full !py-7 text-2xl !px-0">Читать подробнее</Button>
+					<Button onClick={() => onCaseSelect(caseData)} className="w-full !py-7 text-2xl !px-0">Читать подробнее</Button>
 					<Button className="w-full !py-7 text-2xl">Оставить заявку</Button>
 				</div>
 			</div>
@@ -42,7 +41,7 @@ const PracticeCard = ({ caseData }: { caseData: PracticeCase }) => {
 };
 
 // Сам слайдер
-export const PracticeSlider = ({ cases, paginationClass }: { cases: PracticeCase[], paginationClass: string }) => {
+export const PracticeSlider = ({ cases, paginationClass, onCaseSelect }: { cases: PracticeCase[], paginationClass: string, onCaseSelect: (caseData: PracticeCase) => void }) => {
 
 	return (
 		<div className="py-8">
@@ -59,7 +58,7 @@ export const PracticeSlider = ({ cases, paginationClass }: { cases: PracticeCase
 			>
 				{cases.map((caseItem) => (
 					<SwiperSlide key={caseItem.id} className="h-auto py-2">
-						<PracticeCard caseData={caseItem} />
+						<PracticeCard caseData={caseItem} onCaseSelect={onCaseSelect} />
 					</SwiperSlide>
 				))}
 			</Swiper>

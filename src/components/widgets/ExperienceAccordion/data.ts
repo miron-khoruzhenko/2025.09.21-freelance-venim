@@ -1,6 +1,6 @@
 // src/components/widgets/ExperienceAccordion/data.ts
-import { PracticeCase } from '@/components/widgets/PracticeSlider/data';
-import { practiceData } from '@/components/widgets/PracticeSection/data'; // Временно импортируем демо-данные
+import { practiceData } from '@/components/widgets/PracticeSection/data';
+import { PracticeCase } from '@/types/interfaces';
 
 export interface AccordionItemData {
   title: string;

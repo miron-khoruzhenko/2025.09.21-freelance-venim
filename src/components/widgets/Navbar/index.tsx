@@ -8,23 +8,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { CONTACT, navLinks } from '@/config/site';
 
-// const navLinks = [
-//   { href: "/about", label: "О компании" },
-//   {
-//     href: "/services",
-//     label: "Услуги",
-//     submenu: [
-//       { href: "/services/individuals", label: "Частным лицам" },
-//       { href: "/services/business", label: "Бизнесу" },
-//     ],
-//   },
-//   { href: "/promo", label: "Акции" },
-//   { href: "/experience", label: "Наш опыт" },
-//   { href: "/blog", label: "Статьи и новости" },
-//   { href: "/reviews", label: "Отзывы" },
-//   { href: "/partners", label: "Партнеры" },
-//   { href: "/contacts", label: "Контакты" },
-// ];
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -32,80 +15,81 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full backdrop-blur-md shadow-sm border-b-2 border-primary">
+      <header className="fixed top-0 z-50 w-full backdrop-blur-md shadow-sm border-b-2 border-primary font-montserrat">
         <div className="container mx-auto px-4">
           {/* Top Bar */}
           <div className="flex justify-between items-center py-3">
-            <Link className="flex flex-col" href="/">
+            <Link className="flex flex-col relative" href="/#hero">
               <Image
                 alt="Venim Logo"
-                height={40}
+                height={120}
+                width={330}
                 src="/images/logo.png"
-                width={120}
+                className="h-32 w-80"
               />
-              <span className="text-xs text-gray-500 hidden lg:inline">
+              <span className="text-lg font-montserrat hidden lg:inline absolute top-1/2 -translate-y-1/2 right-2">
                 Юридические услуги
               </span>
             </Link>
 
             {/* Desktop Contact Info */}
-            <div className="hidden md:flex items-center gap-4 text-sm text-black">
+            <div className="hidden md:flex items-center gap-4 text-2xl text-black">
               <Image
                 alt="location"
-                className="h-6 w-6"
-                height={24}
+                className="h-20 w-20"
+                height={80}
+                width={80}
                 src="/images/1.Hero/location.png"
-                width={24}
               />
               <div>
-                г. Санкт-Петербург, ул. Съезжинская 11
+                г. Санкт-Петербург, <br /> ул. Съезжинская 11
                 <br />
-                <span className="text-gray-500">
+                <span className="text-gray-500 text-lg">
                   Пн-Пт: 10-19 Сб-Вс: Выходной
                 </span>
               </div>
             </div>
 
             <div className="hidden md:block text-sm text-black">
-              <p className="font-medium">
+              <p className="text-2xl">
                 Вопросы? Напишите или позвоните нам:
               </p>
-              <div className="flex items-center gap-4 mt-1">
+              <div className="flex items-center justify-between gap-4 mt-1">
                 <div className="flex gap-2">
                   <a href={CONTACT.telegram}>
                     <Image
                       alt="Telegram"
-                      height={32}
+                      height={52}
                       src="/images/1.Hero/telegram_circle_icon.png"
-                      width={32}
+                      width={52}
                     />
                   </a>
                   <a href={CONTACT.whatsapp}>
                     <Image
                       alt="WhatsApp"
-                      height={32}
+                      height={52}
                       src="/images/1.Hero/whatsapp_circle_icon.png"
-                      width={32}
+                      width={52}
                     />
                   </a>
                   <a href={CONTACT.vk}>
                     <Image
                       alt="VK"
-                      height={32}
+                      height={52}
                       src="/images/1.Hero/vk_circle_icon.png"
-                      width={32}
+                      width={52}
                     />
                   </a>
                 </div>
                 <div className="text-right">
                   <a
-                    className="font-bold text-base block hover:text-primary"
+                    className="text-2xl block hover:text-primary"
                     href="tel:+78124071792"
                   >
                     +7 (812) 407 17 92
                   </a>
                   <a
-                    className="text-gray-500 hover:text-primary"
+                    className="text-2xl hover:text-primary"
                     href="mailto:info@venim.ru"
                   >
                     info@venim.ru
@@ -144,7 +128,7 @@ export default function Navbar() {
                       : current === target || current.startsWith(target + "/") || current.startsWith(target);
                     return (
                       <Link
-                      className={`font-medium text-black hover:text-primary pb-3 transition-colors ${
+                      className={`font-semibold text-2xl text-black hover:text-primary pb-3 transition-colors ${
                         isActive ? "text-primary border-b-2 border-primary" : ""
                       }`}
                       href={link.href}
@@ -155,14 +139,14 @@ export default function Navbar() {
                     })()}
                   {link.submenu && (
                     <div
-                      className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md p-4 w-48
+                      className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md p-4 w-
                                 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
                     >
                       <div className="border-l-2 border-primary pl-3">
                         {link.submenu.map((sublink) => (
                           <Link
                             key={sublink.href}
-                            className="block text-sm py-1 text-black hover:text-primary"
+                            className="block text-2xl py-1 text-black hover:text-primary whitespace-nowrap"
                             href={sublink.href}
                           >
                             {sublink.label}

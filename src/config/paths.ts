@@ -2,13 +2,14 @@
 
 export const PATHS = {
   home: '/',
-  about: '/about',
-  partners: '/partners',
+  // about: '/about',
+  about: '/#about',
+  partners: '/#partners',
   promo: '/promo',
   experience: '/experience',
-  blog: '/blog',
+  blog: '/#blog',
   reviews: '/reviews',
-  contacts: '/contacts',
+  contacts: '/#contact',
   privacyPolicy: '/privacy-policy',
   
   services: {

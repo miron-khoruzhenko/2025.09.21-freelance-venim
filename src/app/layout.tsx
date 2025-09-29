@@ -2,11 +2,13 @@ import "@styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import { siteConfig } from "@config/site";
-import { fontSans } from "@config/fonts";
+// import { fontSans } from "@config/fonts";
 
 import { Providers } from "./providers";
 import Navbar from "@/components/widgets/Navbar";
 import { Footer } from "@/components/widgets/Footer";
+import { montserrat, unbounded } from '@/config/fonts';
+import { cn } from "@/utils/cn";
 
 export const metadata: Metadata = {
   title: {
@@ -32,12 +34,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="en" className={cn("scroll-smooth font-montserrat ", montserrat.variable, unbounded.variable)}>
       <head />
-      <body
+      <body 
         className={clsx(
           "min-h-screen  font-sans antialiased",
-          fontSans.variable,
+          // fontSans.variable,
         )}
       >
         <Providers

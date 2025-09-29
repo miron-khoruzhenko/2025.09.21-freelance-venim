@@ -43,7 +43,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden">
+    <section id="contact" className="relative py-16 md:py-20 overflow-hidden">
       <Image
         src="/images/contact_form_bg.png"
         alt="Background"

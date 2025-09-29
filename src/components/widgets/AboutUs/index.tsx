@@ -8,7 +8,7 @@ import { SectionTitle } from "@/components/shared/SectionTitle";
 export const AboutUs = () => {
   return (
     // Responsive padding `py` для секции
-    <section className="py-16 md:py-24 lg:py-[185px]">
+    <section id="about" className="py-16 md:py-24 lg:py-[185px]">
       <div className="container mx-auto px-4">
         {/* Здесь мы используем SectionTitle и задаем ему нижний отступ */}
         <SectionTitle className="mb-16 md:mb-[86px]">

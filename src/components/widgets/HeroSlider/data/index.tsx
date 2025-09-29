@@ -4,7 +4,7 @@ export const slidesData = [
     type: "main",
     bgImage: "/images/1.Hero/Carousel/hero_bg_1.png",
     title: () => (
-      <h1 className="text-2xl md:text-5xl font-extrabold leading-tight text-black">
+      <h1 className="text-2xl md:text-5xl font-extrabold font-unbounded leading-tight text-black">
         Юристы для сложных дел.
         <br />
         <span className="">Защищаем, прогнозируем,</span>
@@ -35,7 +35,7 @@ export const slidesData = [
     type: "template",
     bgImage: "/images/1.Hero/Carousel/hero_bg_2.png",
     title: () => (
-      <h1 className="text-2xl md:text-5xl font-extrabold leading-tight text-black">
+      <h1 className="text-2xl md:text-5xl font-extrabold font-unbounded leading-tight text-black">
         Развод без войны —<br />с контролем{" "}
         <span className="text-primary">активов</span>
         <br />и <span className="text-primary">интересов детей</span>
@@ -59,7 +59,7 @@ export const slidesData = [
     type: "template",
     bgImage: "/images/1.Hero/Carousel/hero_bg_3.png",
     title: () => (
-      <h1 className="text-2xl md:text-5xl font-extrabold leading-tight text-black">
+      <h1 className="text-2xl md:text-5xl font-extrabold font-unbounded leading-tight text-black">
         Ваш актив под контролем: от договора до возврата имущества
       </h1>
     ),
@@ -76,7 +76,7 @@ export const slidesData = [
     type: "template",
     bgImage: "/images/1.Hero/Carousel/hero_bg_4.png",
     title: () => (
-      <h1 className="text-2xl md:text-5xl font-extrabold leading-tight text-black">
+      <h1 className="text-2xl md:text-5xl font-extrabold font-unbounded leading-tight text-black">
         Юрист для вашего бизнеса: от проверок до судов
       </h1>
     ),
@@ -99,7 +99,7 @@ export const slidesData = [
     type: "template",
     bgImage: "/images/1.Hero/Carousel/hero_bg_5.png",
     title: () => (
-      <h1 className="text-2xl md:text-5xl font-extrabold leading-tight text-black">
+      <h1 className="text-2xl md:text-5xl font-extrabold font-unbounded leading-tight text-black">
         Защищаем потребителей от обмана — быстро, грамотно, без лишней суеты
       </h1>
     ),
