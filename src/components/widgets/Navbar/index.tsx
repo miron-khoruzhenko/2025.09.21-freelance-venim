@@ -26,7 +26,7 @@ export default function Navbar() {
                 height={120}
                 width={330}
                 src="/images/logo.png"
-                className="h-32 w-80"
+                className="w-24 h-9 lg:h-32 lg:w-80"
               />
               <span className="text-lg font-montserrat hidden lg:inline absolute top-1/2 -translate-y-1/2 right-2">
                 Юридические услуги

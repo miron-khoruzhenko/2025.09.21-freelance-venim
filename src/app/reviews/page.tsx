@@ -2,7 +2,6 @@ import { ContactSection } from "@/components/widgets/ContactSection";
 import { ReviewCategoryFilter } from "@/components/widgets/ReviewCategoryFilter";
 import { ReviewsAccordion } from "@/components/widgets/ReviewsAccordion";
 import ReviewsHero from "@/components/widgets/ReviewsHero";
-import { ReviewsSection } from "@/components/widgets/ReviewsSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

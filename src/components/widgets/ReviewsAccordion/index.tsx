@@ -3,8 +3,6 @@
 
 import { Accordion } from '@/components/shared/Accordion'; // 1. Импортируем новый компонент
 import { experienceAccordionData } from './data';
-import { PracticeSlider } from '@/components/widgets/PracticeSlider';
-import { ReviewsSection } from '../ReviewsSection';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import Image from 'next/image';
