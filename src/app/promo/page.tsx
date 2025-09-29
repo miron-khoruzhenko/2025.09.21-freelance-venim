@@ -1,3 +1,4 @@
+import { ContactSection } from "@/components/widgets/ContactSection";
 import { FaqSection } from "@/components/widgets/FaqSection";
 import { GiftsSection } from "@/components/widgets/GiftsSection";
 import { PromotionsSection } from "@/components/widgets/PromotionsSection";
@@ -38,6 +39,7 @@ export default function PromotionPage() {
 			<PromotionsSection />
 			<GiftsSection />
 			<FaqSection />
+			<ContactSection />
 		</main>
 	);
 }
