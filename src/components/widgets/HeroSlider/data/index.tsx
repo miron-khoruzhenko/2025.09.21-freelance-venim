@@ -57,7 +57,7 @@ export const slidesData = [
   // Новые слайды
   {
     type: "template",
-    bgImage: "/images/1.Hero/Carousel/hero_bg_4.png",
+    bgImage: "/images/1.Hero/Carousel/hero_bg_3.png",
     title: () => (
       <h1 className="text-2xl md:text-5xl font-extrabold leading-tight text-black">
         Ваш актив под контролем: от договора до возврата имущества
@@ -74,7 +74,7 @@ export const slidesData = [
   },
   {
     type: "template",
-    bgImage: "/images/1.Hero/Carousel/hero_bg_5.png",
+    bgImage: "/images/1.Hero/Carousel/hero_bg_4.png",
     title: () => (
       <h1 className="text-2xl md:text-5xl font-extrabold leading-tight text-black">
         Юрист для вашего бизнеса: от проверок до судов
@@ -97,7 +97,7 @@ export const slidesData = [
   },
   {
     type: "template",
-    bgImage: "/images/1.Hero/Carousel/hero_bg_6.png",
+    bgImage: "/images/1.Hero/Carousel/hero_bg_5.png",
     title: () => (
       <h1 className="text-2xl md:text-5xl font-extrabold leading-tight text-black">
         Защищаем потребителей от обмана — быстро, грамотно, без лишней суеты

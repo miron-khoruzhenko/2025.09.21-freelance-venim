@@ -10,10 +10,18 @@ import { marqueeLogos, reviewsData } from './data';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import Link from 'next/link';
+import { PATHS } from '@/config/paths';
 
-export const ReviewsSection = () => {
+import { twMerge as cn } from 'tailwind-merge';
+
+export const ReviewsSection = ({
+  isInverted = false,
+}:{
+  isInverted?: boolean;
+}) => {
   return (
-    <section className="bg-[#DCDEDE] py-[11.875rem]">
+    <section className={cn("py-[11.875rem]", isInverted ? 'bg-white pt-0' : 'bg-[#DCDEDE]')}>
       <div className="container px-4 mx-auto">
         
         <div className="flex flex-col md:flex-row md:items-end md:gap-6">
@@ -26,8 +34,8 @@ export const ReviewsSection = () => {
           </div>
         </div>
 
-        <div className="mt-8 h-[4.6875rem] py-4 bg-white/50 rounded-lg">
-          <Marquee gradient={true} gradientColor="#DCDEDE" gradientWidth={100}>
+        <div className={cn("mt-8 h-[4.6875rem] py-4 rounded-lg", isInverted ? "bg-[#DDDEDE]" : "bg-white")}>
+          <Marquee gradient={true} >
             {marqueeLogos.concat(marqueeLogos).map((logo, index) => (
               <div key={index} className="mx-12 flex items-center h-full">
                 <Image src={logo.src} alt={logo.alt} height={40} width={100} style={{ objectFit: 'contain' }} />
@@ -48,9 +56,9 @@ export const ReviewsSection = () => {
               },
             }}
           >
-            {reviewsData.map((review, index) => (
-              <SwiperSlide key={index}>
-                <div className="relative p-10 bg-white rounded-lg shadow-lg overflow-hidden h-[36.625rem] flex flex-col">
+            {reviewsData.map((review) => (
+              <SwiperSlide key={review.name}>
+                <div className={cn("relative p-10 rounded-lg shadow-lg overflow-hidden h-[36.625rem] flex flex-col", isInverted ? "bg-[#DCDEDE]" : "bg-white")}>
                   <Image src="/images/6.Reviews/bg_img.png" alt="Venim logo background" width={400} height={400} className="absolute inset-0 m-auto -z-0" />
                   <div className="relative z-10 flex-grow">
                     <div className="flex items-center gap-4">
@@ -71,11 +79,11 @@ export const ReviewsSection = () => {
         </div>
 
         {/* Обновленный блок пагинации и ссылки */}
-        <div className="mt-24">
+        {!isInverted &&<div className="mt-24">
           <div className="swiper-pagination-custom" />
           
           <div className="mt-[5.625rem]">
-            <a href="#" className="inline-flex items-center gap-4 group border-b-2 border-primary pb-3">
+            <Link href={PATHS.reviews} className="inline-flex items-center gap-4 group border-b-2 border-primary pb-3">
               <span className="font-semibold text-lg">
                 Читать больше отзывов по 25 направлениям права
               </span>
@@ -86,9 +94,9 @@ export const ReviewsSection = () => {
                 height={20} 
                 className="transition-transform group-hover:translate-x-2"
               />
-            </a>
+            </Link>
           </div>
-        </div>
+        </div>}
       </div>
     </section>
   );

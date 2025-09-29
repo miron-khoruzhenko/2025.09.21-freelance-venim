@@ -1,11 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { slidesData, socialProofIcons } from "./data";
+
+import { PATHS } from "@/config/paths";
 
 export function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -184,12 +187,18 @@ export function HeroSlider() {
                     </div>
                   ) : (
                     <div className="mt-6 flex flex-col lg:flex-row gap-2 lg:gap-8 text-sm font-medium">
-                      <a className="underline hover:text-primary" href="#">
+                      <Link
+                        className="underline hover:text-primary"
+                        href={PATHS.reviews}
+                      >
                         Почитать отзывы
-                      </a>
-                      <a className="underline hover:text-primary" href="#">
+                      </Link>
+                      <Link
+                        className="underline hover:text-primary"
+                        href={PATHS.experience}
+                      >
                         Посмотреть случаи из нашей практики
-                      </a>
+                      </Link>
                     </div>
                   )}
                 </div>

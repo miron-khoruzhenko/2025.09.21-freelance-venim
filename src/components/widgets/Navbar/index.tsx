@@ -6,24 +6,25 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { CONTACT, navLinks } from '@/config/site';
 
-const navLinks = [
-  { href: "/about", label: "О компании" },
-  {
-    href: "/services",
-    label: "Услуги",
-    submenu: [
-      { href: "/services/individuals", label: "Частным лицам" },
-      { href: "/services/business", label: "Бизнесу" },
-    ],
-  },
-  { href: "/promo", label: "Акции" },
-  { href: "/experience", label: "Наш опыт" },
-  { href: "/blog", label: "Статьи и новости" },
-  { href: "/reviews", label: "Отзывы" },
-  { href: "/partners", label: "Партнеры" },
-  { href: "/contacts", label: "Контакты" },
-];
+// const navLinks = [
+//   { href: "/about", label: "О компании" },
+//   {
+//     href: "/services",
+//     label: "Услуги",
+//     submenu: [
+//       { href: "/services/individuals", label: "Частным лицам" },
+//       { href: "/services/business", label: "Бизнесу" },
+//     ],
+//   },
+//   { href: "/promo", label: "Акции" },
+//   { href: "/experience", label: "Наш опыт" },
+//   { href: "/blog", label: "Статьи и новости" },
+//   { href: "/reviews", label: "Отзывы" },
+//   { href: "/partners", label: "Партнеры" },
+//   { href: "/contacts", label: "Контакты" },
+// ];
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -71,7 +72,7 @@ export default function Navbar() {
               </p>
               <div className="flex items-center gap-4 mt-1">
                 <div className="flex gap-2">
-                  <a href="#">
+                  <a href={CONTACT.telegram}>
                     <Image
                       alt="Telegram"
                       height={32}
@@ -79,7 +80,7 @@ export default function Navbar() {
                       width={32}
                     />
                   </a>
-                  <a href="#">
+                  <a href={CONTACT.whatsapp}>
                     <Image
                       alt="WhatsApp"
                       height={32}
@@ -87,7 +88,7 @@ export default function Navbar() {
                       width={32}
                     />
                   </a>
-                  <a href="#">
+                  <a href={CONTACT.vk}>
                     <Image
                       alt="VK"
                       height={32}
@@ -132,13 +133,26 @@ export default function Navbar() {
                   key={link.href}
                   className={link.submenu ? "group relative" : ""}
                 >
-                  <Link
-                    className={`font-medium text-black hover:text-primary pb-3 transition-colors
-                      ${pathname === link.href ? "text-primary border-b-2 border-primary" : ""}`}
-                    href={link.href}
-                  >
-                    {link.label}
-                  </Link>
+                    {(() => {
+                    const normalize = (p: string) =>
+                      (p === "/" ? "/" : p.replace(/\/+$/, "")) || "/";
+                    const current = normalize(pathname || "");
+                    const target = normalize(link.href);
+                    const isActive =
+                      target === "/"
+                      ? current === "/"
+                      : current === target || current.startsWith(target + "/") || current.startsWith(target);
+                    return (
+                      <Link
+                      className={`font-medium text-black hover:text-primary pb-3 transition-colors ${
+                        isActive ? "text-primary border-b-2 border-primary" : ""
+                      }`}
+                      href={link.href}
+                      >
+                      {link.label}
+                      </Link>
+                    );
+                    })()}
                   {link.submenu && (
                     <div
                       className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-md p-4 w-48

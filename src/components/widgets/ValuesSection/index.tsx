@@ -13,7 +13,7 @@ export const ValuesSection = () => {
         </SectionTitle>
 
         {/* Адаптивная сетка: 1, 2 или 4 колонки */}
-        <div className="flex flex-col lg:flex-row justify-between">
+        <div className="grid grid-cols-2 gap-8 lg:flex lg:flex-row justify-between">
           {valuesData.map((value) => (
             <div key={value.title} className="max-w-60">
               <Image 
