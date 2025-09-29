@@ -73,7 +73,7 @@ export function StaticHero({isBusiness=false}:{isBusiness?:boolean}) {
 
           {/* Кнопка и ссылки */}
           <div className="mt-10 max-w-md">
-            <Button className="w-full !py-4">{heroDataIndividual.buttonText}</Button>
+            <Button className="w-full !py-4 whitespace-nowrap">{heroDataIndividual.buttonText}</Button>
             <div className="mt-6 flex justify-center gap-8 text-sm font-medium">
               <Link href={PATHS.reviews} className="underline hover:text-primary">Почитать отзывы</Link>
               <Link href={PATHS.experience} className="underline hover:text-primary">Посмотреть случаи из нашей практики</Link>
